@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestbeanService {
 
-    private final Config.TestBean testBean;
-
-    public TestbeanService(Config.TestBean testBean) {
-        this.testBean = testBean;
-    }
+    private int id;
 
     public int sum() {
-        return testBean.x() + testBean.y();
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
