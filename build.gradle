@@ -27,21 +27,20 @@ test {
     useJUnitPlatform()
 }
 
-//println "configuration.phase"
-//
-//
-//task hello {
-//    description = "Hello world"
-//    group = "bossones"
-//
-//    println "Description: ${description}, group: ${group}, actions: ${actions.size()}"
-//    println "Gradle: ${gradle.hashCode()}, project: ${project.hashCode()}, rootProject: ${rootProject.hashCode()}"
-//
-//    doLast {
-//        println "DoLast"
-//    }
-//
-//    doFirst {
-//        println "DoFirst"
-//    }
-//}
+
+task hello {
+    description = "hello description"
+    group = "hello group"
+
+    doLast {
+        println description
+    }
+
+    doFirst {
+        println group
+    }
+
+    dependsOn build
+
+    finalizedBy clean
+}

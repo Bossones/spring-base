@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="thingOne" class="ru.bossones.dependencyinjection.ThingOne">
+        <constructor-arg ref="thingTwo"/>
+        <constructor-arg ref="thingThree"/>
+    </bean>
+
+    <bean id="thingTwo" class="ru.bossones.dependencyinjection.ThingTwo"/>
+
+    <bean id="thingThree" class="ru.bossones.dependencyinjection.ThingThree"/>
+
+    <bean id="simpleTypeConstructor" class="ru.bossones.dependencyinjection.SimpleTypeConstructor">
+        <constructor-arg name="simpleTypeString" value="test"/>
+        <constructor-arg name="simpleTypeInt" value="42"/>
+    </bean>
+
+    <bean id="setterDi" class="ru.bossones.dependencyinjection.SetterDi">
+        <property name="intSetter" value="1"/>
+        <property name="thingTwo" ref="thingTwo"/>
+        <property name="thingThree">
+            <ref bean="thingThree"/>
+        </property>
+    </bean>
+
+<!--    <bean id="setterDi" class="ru.bossones.dependencyinjection.SetterDi">-->
+<!--        <property name="intSetter" value="1"/>-->
+<!--        <property name="thingTwo">-->
+<!--            <idref bean="thingTwo"/>-->
+    <!-- Что на самом деле такое idref??? -->
+<!--        </property>-->
+<!--        <property name="thingThree" ref="thingThree"/>-->
+<!--    </bean>-->
+</beans>
