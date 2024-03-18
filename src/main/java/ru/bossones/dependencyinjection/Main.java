@@ -23,5 +23,14 @@ public class Main {
         SetterDi setterDi = applicationContext.getBean(SetterDi.class);
 
         assert setterDi.getIntSetter() == 1;
+
+        ConstructorDiWithSameArgs constructorDiWithSameArgs = applicationContext.getBean(ConstructorDiWithSameArgs.class);
+        assert constructorDiWithSameArgs.getA().equals("1");
+        assert constructorDiWithSameArgs.getB() == 2;
+
+        CollectionsDi collectionsDi = applicationContext.getBean(CollectionsDi.class);
+
+        assert collectionsDi.stringList().contains("str1");
+        System.out.println(collectionsDi);
     }
 }

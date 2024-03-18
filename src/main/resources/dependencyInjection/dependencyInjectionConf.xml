@@ -1,7 +1,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
     <bean id="thingOne" class="ru.bossones.dependencyinjection.ThingOne">
         <constructor-arg ref="thingTwo"/>
         <constructor-arg ref="thingThree"/>
@@ -24,7 +24,39 @@
         </property>
     </bean>
 
-<!--    <bean id="setterDi" class="ru.bossones.dependencyinjection.SetterDi">-->
+    <bean id="constructorArgsId" class="ru.bossones.dependencyinjection.ConstructorDiWithSameArgs"
+          p:a="1"
+          p:b="2"
+    >
+    </bean>
+
+    <bean id="collectionsDiId" class="ru.bossones.dependencyinjection.CollectionsDi">
+        <constructor-arg>
+            <list>
+                <value>str1</value>
+                <value>str2</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <set>
+                <value>1</value>
+                <value>1</value>
+                <value>2</value>
+                <value>2</value>
+                <value>3</value>
+                <value>4</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="1" value="str1"/>
+                <entry key="2" value="str1"/>
+                <entry key="3" value="str1"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <!--    <bean id="setterDi" class="ru.bossones.dependencyinjection.SetterDi">-->
 <!--        <property name="intSetter" value="1"/>-->
 <!--        <property name="thingTwo">-->
 <!--            <idref bean="thingTwo"/>-->
