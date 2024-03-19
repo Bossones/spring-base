@@ -1,0 +1,11 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="singletoneId1" class="ru.bossones.methodinjection.Singltone"/>
+
+    <bean id="prototypeId1" class="ru.bossones.methodinjection.Prototype" scope="prototype">
+        <constructor-arg value="1"/>
+        <constructor-arg value="2"/>
+    </bean>
+</beans>
