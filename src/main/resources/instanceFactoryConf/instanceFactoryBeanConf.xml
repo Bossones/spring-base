@@ -7,4 +7,6 @@
     <bean id="defaultLocator" class="ru.bossones.instancefactorybean.DefaultServiceLocator"/>
 
     <bean id="instanceFactoryBean" factory-bean="defaultLocator" factory-method="createInstance"/>
+
+<!--    <bean id="instanceFactoryBean" class="ru.bossones.instancefactorybean.InstanceFactoryBean" factory-method="createInstance"/>-->
 </beans>
