@@ -1,9 +1,12 @@
 package ru.bossones.annotation_based;
 
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
+import ru.bossones.annotation_based.annotation.ComplexQualifier;
+import ru.bossones.annotation_based.enums.Format;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +21,9 @@ public class TestClass {
 
     private OptionalDependency optionalDependency;
 
-    private List<MultipleBean> multipleBeans;
+    private Set<MultipleBean> multipleBeans;
+
+    private ObjectProvider<MultipleBean> objectProvider;
 
     @Autowired(required = false)
     public TestClass(TestTwo testTwo, @Qualifier("mainTestThree") TestThree testThree) {
@@ -64,11 +69,20 @@ public class TestClass {
     }
 
     @Autowired
-    public void setMultipleBeans(List<MultipleBean> multipleBeans) {
+    public void setMultipleBeans(@Qualifier("multiple") Set<MultipleBean> multipleBeans) {
         this.multipleBeans = multipleBeans;
     }
 
-    public List<MultipleBean> getMultipleBeans() {
+    public Set<MultipleBean> getMultipleBeans() {
         return multipleBeans;
+    }
+
+    public ObjectProvider<MultipleBean> getObjectProvider() {
+        return objectProvider;
+    }
+
+    @Autowired
+    public void setObjectProvider(@ComplexQualifier(genre = "Action", format = Format.DVD) ObjectProvider<MultipleBean> objectProvider) {
+        this.objectProvider = objectProvider;
     }
 }

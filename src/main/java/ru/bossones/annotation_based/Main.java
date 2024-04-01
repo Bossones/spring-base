@@ -10,7 +10,12 @@ public class Main {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(TestConfig.class);
 
         TestClass testClass = applicationContext.getBean(TestClass.class);
-        System.out.println(testClass.getTestThree().a());
-        testClass.getMultipleBeans().forEach(multipleBean -> System.out.println(multipleBean.getX()));
+        ResourceTestClass resourceTestClass = applicationContext.getBean(ResourceTestClass.class);
+//        System.out.println(testClass.getTestThree().a());
+//        testClass.getMultipleBeans().forEach(multipleBean -> System.out.println(multipleBean.getX()));
+//        for (MultipleBean multipleBean: testClass.getObjectProvider()) {
+//            System.out.println(multipleBean.getX());
+//        }
+        System.out.println(resourceTestClass.getTestThree().a());
     }
 }
