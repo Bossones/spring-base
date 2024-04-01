@@ -1,4 +1,4 @@
-package ru.bossones.annotation_based;
+package ru.bossones.annotation_based.qualifier;
 
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;

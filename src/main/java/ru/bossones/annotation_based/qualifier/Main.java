@@ -1,8 +1,8 @@
-package ru.bossones.annotation_based;
+package ru.bossones.annotation_based.qualifier;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.bossones.annotation_based.config.TestConfig;
+import ru.bossones.annotation_based.qualifier.config.TestConfig;
 
 public class Main {
 

@@ -1,14 +1,13 @@
-package ru.bossones.annotation_based;
+package ru.bossones.annotation_based.qualifier;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
-import ru.bossones.annotation_based.annotation.ComplexQualifier;
-import ru.bossones.annotation_based.enums.Format;
+import ru.bossones.annotation_based.qualifier.annotation.ComplexQualifier;
+import ru.bossones.annotation_based.qualifier.enums.Format;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
