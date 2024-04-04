@@ -6,17 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import ru.bossones.annotation_based.value.annotation.CoffeeShop;
 
 @CoffeeShop(name = "frenchCoffeeShop")
-public class FrenchCoffeeShop {
-
-    private final String shopName;
-
-    public FrenchCoffeeShop(@Value("${frenchCoffeeShop.name:Default Qui Bonno}") String shopName) {
-        this.shopName = shopName;
-    }
-
-    public String getShopName() {
-        return shopName;
-    }
+public record FrenchCoffeeShop(@Value("${frenchCoffeeShop.name:Default Qui Bonno}") String shopName) {
 
     @PostConstruct
     public void init() {
